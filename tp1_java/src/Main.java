@@ -28,10 +28,18 @@ public class Main {
         } catch (IllegalArgumentException e) {
             System.out.println("Échec intercepté : " + e.getMessage());
         }
+        // Exercice 3
+        Rectangle r1 = new Rectangle(4.0, 5.0);
+        System.out.println("Rectangle 1 - Aire : " + r1.aire() + " | Périmètre : " + r1.perimetre());
 
+        Rectangle r2 = new Rectangle(3.0);
+        System.out.println("Rectangle 2 - Aire : " + r2.aire() + " | Périmètre : " + r2.perimetre());
+
+        Rectangle r3 = new Rectangle();
+        System.out.println("Rectangle 3 - Aire : " + r3.aire() + " | Périmètre : " + r3.perimetre());
     }
 
-    // Exercice 3
+
 
 
 }
