@@ -75,7 +75,25 @@ public class Main {
             System.out.println("La plus grande forme a une aire de : " + plusGrandeForme.aire());
         }
 
+        // EXERCICE 6
+        Allumable[] appareils = new Allumable[] {
+                new TelephonePortable(),
+                new Lampe()
+        };
+        System.out.println("--- Allumage des appareils ---");
+        for (Allumable appareil : appareils) {
+            appareil.allumer();
+        }
 
+        System.out.println(" Connexion Wi-Fi des appareils compatibles ");
+        for (Allumable appareil : appareils) {
+            if (appareil instanceof ConnecteWifi) {
+                ConnecteWifi appareilWifi = (ConnecteWifi) appareil;
+                appareilWifi.connecter("Maison_5G");
+            } else {
+                System.out.println("Cet appareil (" + appareil.getClass().getSimpleName() + ") ne supporte pas le Wi-Fi.");
+            }
+        }
 
 
 
