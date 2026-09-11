@@ -37,6 +37,21 @@ public class Main {
 
         Rectangle r3 = new Rectangle();
         System.out.println("Rectangle 3 - Aire : " + r3.aire() + " | Périmètre : " + r3.perimetre());
+
+        // Exercice 4
+        Employe[] employes = new Employe[] {
+                new Employe("Vincent", 2500.0),
+                new Manager("Elias", 3500.0, 1000.0),
+                new Employe("Cesar", 2200.0),
+                new Manager("Rim", 4000.0, 1500.0)
+        };
+
+        for (Employe e : employes) {
+            System.out.println("Employé : " + e.getNom() + " | Salaire total : " + e.calculerSalaire() + " €");
+        }
+
+
+
     }
 
 

@@ -39,7 +39,6 @@ public class Rectangle {
         }
         this.hauteur = hauteur;
     }
-
     public double aire() {
         return largeur * hauteur;
     }
