@@ -58,7 +58,22 @@ public class Main {
 
         ordi.afficher("USD");
 
+        // EXERCICE 6
+        Forme[] formes = new Forme[] {
+                new Cercle(3.0),
+                new RectangleForme(4.0, 5.0),
+                new Triangle(6.0, 4.0)
+        };
 
+        System.out.println("Calcul des aires :");
+        for (Forme f : formes) {
+            f.afficherAire();
+        }
+
+        Forme plusGrandeForme = Forme.plusGrande(formes);
+        if (plusGrandeForme != null) {
+            System.out.println("La plus grande forme a une aire de : " + plusGrandeForme.aire());
+        }
 
 
 
