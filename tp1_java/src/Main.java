@@ -50,11 +50,20 @@ public class Main {
             System.out.println("Employé : " + e.getNom() + " | Salaire total : " + e.calculerSalaire() + " €");
         }
 
+        // Exercie 5
+        Produit ordi = new Produit("MacBook Air", 1200.0);
+        ordi.afficher();
+
+        ordi.afficher(15.0);
+
+        ordi.afficher("USD");
+
+
+
+
+
+
 
 
     }
-
-
-
-
 }
