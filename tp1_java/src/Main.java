@@ -1,4 +1,5 @@
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
@@ -102,5 +103,30 @@ public class Main {
         for (Reservation res : reservations) {
             System.out.println("Client : " + res.getNomClient() + " | Durée : " + res.dureeSejour() + " nuits | Haute saison : " + Reservation.estEnHauteSaison(res.getDateArrivee()));
         }
+
+        // Exercice 9
+        System.out.println("\n=== TEST EXERCICE 9 : ETUDIANT (EQUALS & HASHCODE) ===");
+
+        ArrayList<Etudiant> listeEtudiants = new ArrayList<>();
+
+        Etudiant e1 = new Etudiant("E1905", "Elias", 20);
+        Etudiant e2 = new Etudiant("E456", "Vincent", 14.0);
+
+        listeEtudiants.add(e1);
+        listeEtudiants.add(e2);
+
+        System.out.println("Liste des étudiants");
+        for (Etudiant e : listeEtudiants) {
+            System.out.println(e);
+        }
+
+        System.out.println("Test de comparaison avec contains() ");
+
+        Etudiant e3 = new Etudiant("E1905", "Elias Copie", 10);
+
+        System.out.println("e1.equals(e3) ? " + e1.equals(e3));
+
+        boolean présent = listeEtudiants.contains(e3);
+        System.out.println("La liste contient-elle e3 (numéro E123) ? " + présent);
     }
 }
