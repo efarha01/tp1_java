@@ -17,17 +17,17 @@ public class TelephonePortable implements Allumable, ConnecteWifi {
     public void eteindre() {
         this.allume = false;
         this.reseauConnecte = null;
-        System.out.println("Téléphone : Éteint.");
+        System.out.println("Éteint.");
     }
 
     @Override
     public void connecter(String reseau) {
         if (!allume) {
-            System.out.println("Téléphone : Impossible de se connecter au Wi-Fi, le téléphone est éteint.");
+            System.out.println("Impossible de se connecter au Wi-Fi, téléphone est éteint.");
             return;
         }
         this.reseauConnecte = reseau;
-        System.out.println("Téléphone : Connecté au réseau Wi-Fi " + reseau);
+        System.out.println("Connecté au réseau Wi-Fi " + reseau);
     }
 
     @Override

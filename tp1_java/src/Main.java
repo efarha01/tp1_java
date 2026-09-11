@@ -1,3 +1,5 @@
+import java.time.LocalDate;
+
 public class Main {
     public static void main(String[] args) {
         // Exercice 1
@@ -28,6 +30,7 @@ public class Main {
         } catch (IllegalArgumentException e) {
             System.out.println("Échec intercepté : " + e.getMessage());
         }
+
         // Exercice 3
         Rectangle r1 = new Rectangle(4.0, 5.0);
         System.out.println("Rectangle 1 - Aire : " + r1.aire() + " | Périmètre : " + r1.perimetre());
@@ -50,22 +53,20 @@ public class Main {
             System.out.println("Employé : " + e.getNom() + " | Salaire total : " + e.calculerSalaire() + " €");
         }
 
-        // Exercie 5
+        // Exercice 5
         Produit ordi = new Produit("MacBook Air", 1200.0);
         ordi.afficher();
-
         ordi.afficher(15.0);
-
         ordi.afficher("USD");
 
-        // EXERCICE 6
+        // Exercice 6
         Forme[] formes = new Forme[] {
                 new Cercle(3.0),
                 new RectangleForme(4.0, 5.0),
                 new Triangle(6.0, 4.0)
         };
 
-        System.out.println("Calcul des aires :");
+        System.out.println("\nCalcul des aires :");
         for (Forme f : formes) {
             f.afficherAire();
         }
@@ -75,17 +76,15 @@ public class Main {
             System.out.println("La plus grande forme a une aire de : " + plusGrandeForme.aire());
         }
 
-        // EXERCICE 6
+        // Exercice 7
         Allumable[] appareils = new Allumable[] {
                 new TelephonePortable(),
                 new Lampe()
         };
-        System.out.println("--- Allumage des appareils ---");
+
         for (Allumable appareil : appareils) {
             appareil.allumer();
         }
-
-        System.out.println(" Connexion Wi-Fi des appareils compatibles ");
         for (Allumable appareil : appareils) {
             if (appareil instanceof ConnecteWifi) {
                 ConnecteWifi appareilWifi = (ConnecteWifi) appareil;
@@ -95,8 +94,13 @@ public class Main {
             }
         }
 
+        // Exercice 8
+        Reservation res1 = new Reservation("Elias", LocalDate.of(2026, 7, 10), LocalDate.of(2026, 7, 17));
+        Reservation res2 = new Reservation("Cesar", LocalDate.of(2026, 11, 1), LocalDate.of(2026, 11, 5));
 
-
-
+        Reservation[] reservations = { res1, res2 };
+        for (Reservation res : reservations) {
+            System.out.println("Client : " + res.getNomClient() + " | Durée : " + res.dureeSejour() + " nuits | Haute saison : " + Reservation.estEnHauteSaison(res.getDateArrivee()));
+        }
     }
 }
