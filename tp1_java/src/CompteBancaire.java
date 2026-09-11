@@ -1,10 +1,10 @@
 public class CompteBancaire {
-    private double solde;
     private String titulaire;
+    private double solde;
 
     public CompteBancaire(String titulaire, double soldeInitial) {
         if (soldeInitial < 0) {
-            throw new IllegalArgumentException("Le solde initial ne peut pas être négatif.");
+            throw new MontantInvalideException("Le solde initial ne peut pas être négatif.");
         }
         this.titulaire = titulaire;
         this.solde = soldeInitial;
@@ -18,24 +18,28 @@ public class CompteBancaire {
         return titulaire;
     }
 
-    public void setTitulaire(String titulaire) {
-        this.titulaire = titulaire;
-    }
-
     public void deposer(double montant) {
         if (montant <= 0) {
-            throw new IllegalArgumentException("Le montant du dépôt doit être supérieur à 0.");
+            throw new MontantInvalideException("Le montant du dépôt doit être supérieur à 0.");
         }
         this.solde += montant;
     }
 
-    public void retirer (double montant){
+    // Retrait avec declaration de l'exception checked SoldeInsuffisantException
+    public void retirer(double montant) throws SoldeInsuffisantException {
         if (montant <= 0) {
-            throw new IllegalArgumentException("Le montant du retrait doit être supérieur à 0.");
+            // Optionnel : exception unchecked pour montant invalide
+            throw new MontantInvalideException("Le montant du retrait doit être strictement positif.");
         }
-        if (montant > this.solde) {
-            throw new IllegalArgumentException("Le montant du retrait doit être inférieur ou égal au solde disponible.");
+
+        if (montant > solde) {
+            double manquant = montant - solde;
+            throw new SoldeInsuffisantException(
+                    "Solde insuffisant pour effectuer ce retrait.",
+                    manquant
+            );
         }
+
         this.solde -= montant;
     }
 }
