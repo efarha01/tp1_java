@@ -1,5 +1,4 @@
 class Livre {
-    // Compartiment des attributs
     private String titre;
     private String auteur;
     private int nombrePages;
